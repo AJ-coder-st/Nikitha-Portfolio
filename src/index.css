@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,48 +6,52 @@
 
 @layer base {
   :root {
-    --background: 220 20% 7%;
-    --foreground: 210 20% 95%;
+    --background: 240 15% 6%;
+    --foreground: 240 10% 92%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 20% 95%;
+    --card: 240 12% 9%;
+    --card-foreground: 240 10% 92%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 240 12% 9%;
+    --popover-foreground: 240 10% 92%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 20% 7%;
+    --primary: 262 40% 65%;
+    --primary-foreground: 240 15% 6%;
 
-    --secondary: 220 16% 16%;
-    --secondary-foreground: 210 20% 90%;
+    --secondary: 240 10% 14%;
+    --secondary-foreground: 240 10% 85%;
 
-    --muted: 220 14% 14%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 240 8% 12%;
+    --muted-foreground: 240 8% 50%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 220 20% 7%;
+    --accent: 340 25% 65%;
+    --accent-foreground: 240 15% 6%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 220 16% 18%;
-    --input: 220 16% 18%;
-    --ring: 217 91% 60%;
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 262 40% 65%;
 
     --radius: 0.75rem;
 
-    --glass: 220 18% 12%;
-    --glass-border: 220 16% 22%;
-    --glow: 217 91% 60%;
+    --glass: 240 12% 10%;
+    --glass-border: 262 20% 22%;
+    --glow: 262 40% 65%;
 
-    --sidebar-background: 220 20% 7%;
-    --sidebar-foreground: 210 20% 95%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 220 20% 7%;
-    --sidebar-accent: 220 16% 16%;
-    --sidebar-accent-foreground: 210 20% 90%;
-    --sidebar-border: 220 16% 18%;
-    --sidebar-ring: 217 91% 60%;
+    --rose: 340 25% 65%;
+    --lavender: 262 40% 65%;
+    --mauve: 280 20% 50%;
+
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 240 10% 92%;
+    --sidebar-primary: 262 40% 65%;
+    --sidebar-primary-foreground: 240 15% 6%;
+    --sidebar-accent: 240 10% 14%;
+    --sidebar-accent-foreground: 240 10% 85%;
+    --sidebar-border: 240 10% 16%;
+    --sidebar-ring: 262 40% 65%;
   }
 }
 
@@ -57,7 +61,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
   }
 
@@ -68,35 +72,70 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Cormorant Garamond', serif;
   }
 
   .glass-card {
-    @apply bg-card/60 backdrop-blur-xl border border-glass-border rounded-xl;
-    box-shadow: 0 8px 32px 0 hsla(217, 91%, 60%, 0.06);
+    @apply bg-card/50 backdrop-blur-2xl border border-glass-border/40 rounded-2xl;
+    box-shadow: 
+      0 8px 40px 0 hsla(262, 40%, 65%, 0.04),
+      0 1px 0 0 hsla(262, 40%, 65%, 0.06) inset;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-700 ease-out;
+  }
+  .glass-card-hover:hover {
+    box-shadow: 
+      0 12px 48px 0 hsla(262, 40%, 65%, 0.08),
+      0 1px 0 0 hsla(262, 40%, 65%, 0.1) inset;
+    transform: translateY(-2px);
   }
 
   .glow-text {
-    text-shadow: 0 0 40px hsla(217, 91%, 60%, 0.3);
+    text-shadow: 0 0 60px hsla(262, 40%, 65%, 0.2);
   }
 
   .glow-border {
-    box-shadow: 0 0 20px hsla(217, 91%, 60%, 0.15), inset 0 0 20px hsla(217, 91%, 60%, 0.05);
+    box-shadow: 
+      0 0 24px hsla(262, 40%, 65%, 0.08),
+      inset 0 0 24px hsla(262, 40%, 65%, 0.03);
   }
 
   .gradient-text {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(217 91% 60%), hsl(240 80% 70%), hsl(217 91% 75%));
+    background-image: linear-gradient(
+      135deg, 
+      hsl(262 40% 72%), 
+      hsl(340 25% 70%), 
+      hsl(262 50% 78%)
+    );
+  }
+
+  .gradient-text-subtle {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(240 10% 92%),
+      hsl(262 30% 80%)
+    );
   }
 
   .hero-gradient {
-    background: radial-gradient(ellipse at 50% 0%, hsla(217, 91%, 60%, 0.12) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, hsla(240, 80%, 60%, 0.06) 0%, transparent 50%),
-                hsl(var(--background));
+    background: 
+      radial-gradient(ellipse at 30% 20%, hsla(262, 40%, 65%, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, hsla(340, 25%, 65%, 0.05) 0%, transparent 45%),
+      radial-gradient(ellipse at 50% 80%, hsla(280, 20%, 50%, 0.04) 0%, transparent 50%),
+      hsl(var(--background));
   }
 
   .section-gradient {
-    background: linear-gradient(180deg, transparent 0%, hsla(217, 91%, 60%, 0.03) 50%, transparent 100%);
+    background: linear-gradient(
+      180deg, 
+      transparent 0%, 
+      hsla(262, 40%, 65%, 0.02) 50%, 
+      transparent 100%
+    );
   }
 
   .animated-underline {
@@ -104,9 +143,47 @@
   }
   .animated-underline::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500;
+    @apply absolute bottom-0 left-0 w-0 h-px transition-all duration-700 ease-out;
+    background: linear-gradient(90deg, hsl(262 40% 65%), hsl(340 25% 65%));
   }
   .animated-underline:hover::after {
     @apply w-full;
+  }
+
+  .section-divider {
+    @apply w-full h-px mx-auto;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(262, 40%, 65%, 0.2) 30%,
+      hsla(340, 25%, 65%, 0.15) 50%,
+      hsla(262, 40%, 65%, 0.2) 70%,
+      transparent 100%
+    );
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(262, 40%, 65%, 0.08) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .scroll-progress {
+    @apply fixed top-0 left-0 h-[2px] z-[60];
+    background: linear-gradient(90deg, hsl(262 40% 65%), hsl(340 25% 65%), hsl(262 50% 75%));
   }
 }

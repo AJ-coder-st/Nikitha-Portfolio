@@ -30,16 +30,16 @@ const CertificateCard = ({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 25 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: 0.3 + index * 0.2, duration: 0.6 }}
-      className="perspective-1000 h-56 cursor-pointer"
+      transition={{ delay: 0.3 + index * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="perspective-1000 h-60 cursor-pointer"
       onClick={() => setFlipped(!flipped)}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
     >
       <div
-        className="relative w-full h-full transition-transform duration-700"
+        className="relative w-full h-full transition-transform duration-700 ease-out"
         style={{
           transformStyle: "preserve-3d",
           transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
@@ -47,19 +47,23 @@ const CertificateCard = ({
       >
         {/* Front */}
         <div
-          className="absolute inset-0 glass-card p-6 flex flex-col items-center justify-center text-center glow-border"
+          className="absolute inset-0 glass-card p-7 flex flex-col items-center justify-center text-center"
           style={{ backfaceVisibility: "hidden" }}
         >
-          <Award size={36} className="text-primary mb-4" />
-          <h3 className="font-display font-semibold text-foreground text-sm sm:text-base">
+          <div className="w-12 h-12 rounded-xl bg-primary/[0.06] flex items-center justify-center mb-5">
+            <Award size={22} className="text-primary/60" />
+          </div>
+          <h3 className="font-display text-base font-medium text-foreground tracking-wide leading-snug mb-2">
             {cert.title}
           </h3>
-          <p className="text-primary text-xs mt-2 font-medium">{cert.institution}</p>
+          <p className="text-primary/60 text-xs font-medium tracking-wide">
+            {cert.institution}
+          </p>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 glass-card p-6 flex items-center justify-center text-center"
+          className="absolute inset-0 glass-card p-7 flex items-center justify-center text-center"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -73,20 +77,27 @@ const CertificateCard = ({
 
 const CertificatesSection = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="certificates" className="py-24">
+    <section id="certificates" className="py-28 section-gradient">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-16 text-center">
+        <motion.div ref={ref}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-4xl sm:text-5xl font-light tracking-wide mb-4 text-center"
+          >
             <span className="gradient-text">Certificates</span>
-          </h2>
+          </motion.h2>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="section-divider max-w-16 mx-auto mb-16"
+          />
 
           <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
             {certificates.map((cert, i) => (

@@ -7,14 +7,14 @@ const EducationSection = () => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="education" className="py-28 section-gradient">
+    <section id="education" className="py-32 sm:py-40 section-gradient">
       <div className="container mx-auto px-6">
         <motion.div ref={ref}>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl sm:text-5xl font-light tracking-wide mb-4 text-center"
+            className="font-display text-5xl sm:text-6xl md:text-7xl font-semibold tracking-wide mb-6 text-center"
           >
             <span className="gradient-text">Education</span>
           </motion.h2>
@@ -23,18 +23,19 @@ const EducationSection = () => {
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="section-divider max-w-16 mx-auto mb-16"
+            className="section-divider max-w-24 mx-auto mb-20"
           />
 
-          <div className="max-w-lg mx-auto relative">
+          <div className="max-w-xl mx-auto relative">
             {/* Timeline line */}
             <motion.div
               initial={{ scaleY: 0 }}
               animate={inView ? { scaleY: 1 } : {}}
               transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-              className="absolute left-6 top-0 bottom-0 w-px origin-top"
+              className="absolute left-8 top-0 bottom-0 w-[2px] origin-top"
               style={{
-                background: "linear-gradient(180deg, hsl(262 40% 65%), transparent)",
+                background: "linear-gradient(180deg, hsl(262 55% 70%), transparent)",
+                boxShadow: "0 0 10px hsla(262, 55%, 70%, 0.3)",
               }}
             />
 
@@ -42,17 +43,17 @@ const EducationSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative pl-16"
+              className="relative pl-20"
             >
-              <div className="absolute left-3 top-4 w-7 h-7 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center">
-                <GraduationCap size={13} className="text-primary/70" />
+              <div className="absolute left-4 top-6 w-10 h-10 rounded-full bg-primary/15 border-2 border-primary/40 flex items-center justify-center shadow-lg">
+                <GraduationCap size={18} className="text-primary/90" />
               </div>
 
-              <div className="glass-card-hover p-7">
-                <h3 className="font-display text-xl font-medium text-foreground mb-1 tracking-wide">
+              <div className="glass-card-hover p-10">
+                <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-2 tracking-wide">
                   Bachelor of Commerce
                 </h3>
-                <p className="text-primary/70 text-sm font-medium tracking-wide">
+                <p className="text-primary/90 text-lg font-semibold tracking-wide">
                   DRBCC Hindu College
                 </p>
               </div>

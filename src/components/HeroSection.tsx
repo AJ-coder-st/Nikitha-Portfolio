@@ -60,7 +60,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="text-primary/70 font-medium text-xs tracking-[0.4em] uppercase mb-8"
+          className="text-primary/80 font-semibold text-sm sm:text-base tracking-[0.4em] uppercase mb-10"
         >
           Portfolio
         </motion.p>
@@ -69,7 +69,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-wide mb-4 glow-text"
+          className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold tracking-wide mb-6 glow-text"
         >
           Nikitha P
         </motion.h1>
@@ -79,9 +79,10 @@ const HeroSection = () => {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ delay: 1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="w-24 h-px mx-auto mb-8"
+          className="w-32 h-[2px] mx-auto mb-10"
           style={{
-            background: "linear-gradient(90deg, transparent, hsl(262 40% 65%), hsl(340 25% 65%), transparent)",
+            background: "linear-gradient(90deg, transparent, hsl(262 55% 70%), hsl(340 45% 70%), transparent)",
+            boxShadow: "0 0 20px hsla(262, 55%, 70%, 0.3)",
           }}
         />
 
@@ -89,11 +90,11 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.6 }}
-          className="h-8 mb-8"
+          className="h-10 mb-10"
         >
-          <span className="text-lg sm:text-xl text-primary/80 font-display font-medium tracking-wide italic">
+          <span className="text-2xl sm:text-3xl md:text-4xl text-primary/90 font-display font-semibold tracking-wide italic">
             {displayed}
-            <span className="animate-pulse text-primary/40">|</span>
+            <span className="animate-pulse text-primary/50">|</span>
           </span>
         </motion.div>
 
@@ -101,7 +102,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="text-muted-foreground text-sm sm:text-base max-w-lg mx-auto mb-12 leading-relaxed tracking-wide"
+          className="text-foreground/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-16 leading-relaxed tracking-wide font-medium"
         >
           Turning raw data into valuable insights through advanced analytics,
           interactive dashboards, and strategic data visualization.
@@ -112,12 +113,12 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className="group inline-flex items-center gap-2 px-8 py-3 rounded-full border border-primary/30 text-foreground font-medium text-xs tracking-[0.15em] uppercase transition-all duration-700 hover:border-primary/60 hover:bg-primary/5 hover:shadow-[0_0_30px_hsla(262,40%,65%,0.1)]"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group inline-flex items-center gap-3 px-10 py-4 rounded-full text-foreground font-semibold text-sm tracking-[0.15em] uppercase transition-all duration-500 button-gradient text-white shadow-lg"
         >
           Get In Touch
-          <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+          <span className="inline-block transition-transform duration-500 group-hover:translate-x-2 text-lg">→</span>
         </motion.a>
       </motion.div>
 

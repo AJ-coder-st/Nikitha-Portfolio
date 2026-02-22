@@ -28,8 +28,8 @@ const Index = () => {
       <AboutSection id="about-2" />
       <ContactSection />
 
-      <footer className="py-10 text-center border-t border-border/50">
-        <p className="text-xs text-muted-foreground tracking-[0.15em] uppercase">
+      <footer className="py-12 sm:py-16 text-center border-t border-border/60">
+        <p className="text-sm sm:text-base text-foreground/70 tracking-[0.15em] uppercase font-medium">
           © 2025 Nikitha P
         </p>
       </footer>

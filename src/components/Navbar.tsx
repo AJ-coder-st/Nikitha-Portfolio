@@ -45,24 +45,24 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#hero" className="font-display text-2xl font-semibold tracking-wide gradient-text-subtle">
+        <a href="#hero" className="font-display text-2xl sm:text-3xl font-bold tracking-wide gradient-text">
           Nikitha P
         </a>
 
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden md:flex items-center gap-12">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`relative text-xs font-medium uppercase tracking-[0.15em] transition-colors duration-500 ${
+                className={`relative text-sm font-semibold uppercase tracking-[0.15em] transition-colors duration-500 ${
                   activeSection === link.href.slice(1)
                     ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-foreground/70 hover:text-foreground"
                 }`}
               >
                 {link.label}
                 <motion.span
-                  className="absolute -bottom-1 left-0 h-px bg-primary"
+                  className="absolute -bottom-1 left-0 h-[2px] bg-primary"
                   initial={false}
                   animate={{
                     width: activeSection === link.href.slice(1) ? "100%" : "0%",
@@ -76,9 +76,9 @@ const Navbar = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground hover:text-primary transition-colors"
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
@@ -91,13 +91,13 @@ const Navbar = () => {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden glass-card mx-4 mt-2 rounded-2xl overflow-hidden"
           >
-            <ul className="flex flex-col p-5 gap-1">
+            <ul className="flex flex-col p-6 gap-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground hover:text-foreground py-3 transition-colors duration-400"
+                    className="block text-sm font-semibold uppercase tracking-[0.15em] text-foreground/80 hover:text-foreground py-4 transition-colors duration-400"
                   >
                     {link.label}
                   </a>

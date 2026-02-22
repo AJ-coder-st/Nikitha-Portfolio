@@ -6,7 +6,7 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id={id} className="py-28 relative">
+    <section id={id} className="py-32 sm:py-40 relative">
       <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
@@ -18,7 +18,7 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-4xl sm:text-5xl font-light tracking-wide mb-4 text-center"
+            className="font-display text-5xl sm:text-6xl md:text-7xl font-semibold tracking-wide mb-6 text-center"
           >
             <span className="gradient-text">About Me</span>
           </motion.h2>
@@ -27,11 +27,11 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="section-divider max-w-16 mx-auto mb-16"
+            className="section-divider max-w-24 mx-auto mb-20"
           />
 
-          <div className="max-w-4xl mx-auto glass-card-hover p-8 sm:p-12">
-            <div className="flex flex-col md:flex-row items-center gap-10">
+          <div className="max-w-5xl mx-auto glass-card-hover p-10 sm:p-16">
+            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
               {/* Profile picture */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -39,8 +39,8 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
                 transition={{ delay: 0.3, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="relative flex-shrink-0"
               >
-                <div className="absolute -inset-4 rounded-full bg-primary/[0.04] blur-2xl" />
-                <div className="relative w-28 h-28 rounded-full bg-secondary/80 flex items-center justify-center border border-primary/10 overflow-hidden group cursor-pointer">
+                <div className="absolute -inset-6 rounded-full bg-primary/[0.08] blur-3xl animate-pulse-glow" />
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full bg-secondary/80 flex items-center justify-center border-2 border-primary/20 overflow-hidden group cursor-pointer profile-image-shadow transition-all duration-700 hover:scale-105">
                   <img 
                     src="/Nikitha_P.jpg.jpg.jpeg" 
                     alt="Nikitha P" 
@@ -54,7 +54,7 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.4, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="space-y-4 text-muted-foreground leading-relaxed text-center md:text-left text-sm"
+                className="space-y-6 text-foreground/90 leading-relaxed text-center md:text-left text-base sm:text-lg"
               >
                 <p>
                   I'm B.Com graduate and aspiring Data Analyst with hands-on experience in Excel, SQL, and Power BI.

@@ -4,38 +4,49 @@ import { FolderOpen } from "lucide-react";
 
 const ProjectsSection = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="projects" className="py-24 section-gradient">
+    <section id="projects" className="py-28">
       <div className="container mx-auto px-6">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-16 text-center">
+        <motion.div ref={ref}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-4xl sm:text-5xl font-light tracking-wide mb-4 text-center"
+          >
             <span className="gradient-text">Projects</span>
-          </h2>
+          </motion.h2>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="section-divider max-w-16 mx-auto mb-16"
+          />
 
           <div className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
             {[1, 2, 3, 4].map((n) => (
               <motion.div
                 key={n}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.2 + n * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.03, y: -4 }}
-                className="glass-card p-6 group cursor-pointer hover:glow-border transition-all duration-500"
+                transition={{
+                  delay: 0.3 + n * 0.1,
+                  duration: 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                whileHover={{ y: -4, transition: { duration: 0.4 } }}
+                className="glass-card-hover p-7 group cursor-pointer"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <FolderOpen size={22} className="text-primary" />
+                <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center mb-5 group-hover:bg-primary/10 transition-colors duration-500">
+                  <FolderOpen size={18} className="text-primary/60" />
                 </div>
-                <h3 className="font-display font-semibold text-foreground mb-2">
+                <h3 className="font-display text-lg font-medium text-foreground mb-2 tracking-wide">
                   Project {n}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   Coming soon — details will be added shortly.
                 </p>
               </motion.div>

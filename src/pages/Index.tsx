@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import EducationSection from "@/components/EducationSection";
@@ -10,7 +12,13 @@ import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div
+      initial={{ opacity: 0, filter: "blur(8px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
+      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      className="min-h-screen bg-background"
+    >
+      <ScrollProgress />
       <Navbar />
       <HeroSection />
       <AboutSection id="about" />
@@ -22,13 +30,12 @@ const Index = () => {
       <AboutSection id="about-2" />
       <ContactSection />
 
-      {/* Footer */}
-      <footer className="py-8 text-center border-t border-border">
-        <p className="text-sm text-muted-foreground">
-          © 2025 Nikitha P. All rights reserved.
+      <footer className="py-10 text-center border-t border-border/50">
+        <p className="text-xs text-muted-foreground tracking-[0.15em] uppercase">
+          © 2025 Nikitha P
         </p>
       </footer>
-    </div>
+    </motion.div>
   );
 };
 

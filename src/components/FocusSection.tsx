@@ -4,32 +4,41 @@ import { Target } from "lucide-react";
 
 const FocusSection = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="focus" className="py-24">
+    <section id="focus" className="py-28 section-gradient">
       <div className="container mx-auto px-6 text-center">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="font-display text-3xl sm:text-4xl font-bold mb-10">
+        <motion.div ref={ref}>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display text-4xl sm:text-5xl font-light tracking-wide mb-4"
+          >
             <span className="gradient-text">Focus</span>
-          </h2>
+          </motion.h2>
 
-          <div className="max-w-xl mx-auto glass-card p-10 glow-border">
-            <Target size={40} className="text-primary mx-auto mb-6" />
-            <motion.h3
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.4 }}
-              className="font-display text-2xl sm:text-3xl font-bold text-foreground animated-underline inline-block pb-2"
-            >
-              Data-Driven Decision Making
-            </motion.h3>
-          </div>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={inView ? { scaleX: 1 } : {}}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="section-divider max-w-16 mx-auto mb-16"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ delay: 0.4, duration: 0.7 }}
+            className="max-w-md mx-auto glass-card-hover p-12"
+          >
+            <Target size={32} className="text-primary/50 mx-auto mb-8" />
+            <h3 className="font-display text-2xl sm:text-3xl font-light text-foreground tracking-wide leading-snug">
+              Data-Driven
+              <br />
+              <span className="gradient-text font-medium">Decision Making</span>
+            </h3>
+          </motion.div>
         </motion.div>
       </div>
     </section>

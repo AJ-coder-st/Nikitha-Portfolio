@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { User } from "lucide-react";
 
 const AboutSection = ({ id = "about" }: { id?: string }) => {
   const ref = useRef(null);
@@ -33,7 +32,7 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
 
           <div className="max-w-4xl mx-auto glass-card-hover p-8 sm:p-12">
             <div className="flex flex-col md:flex-row items-center gap-10">
-              {/* Image placeholder with soft shapes */}
+              {/* Profile picture */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -42,7 +41,11 @@ const AboutSection = ({ id = "about" }: { id?: string }) => {
               >
                 <div className="absolute -inset-4 rounded-full bg-primary/[0.04] blur-2xl" />
                 <div className="relative w-28 h-28 rounded-full bg-secondary/80 flex items-center justify-center border border-primary/10 overflow-hidden group cursor-pointer">
-                  <User size={44} className="text-primary/60 transition-transform duration-700 group-hover:scale-110" />
+                  <img 
+                    src="/Nikitha_P.jpg.jpg.jpeg" 
+                    alt="Nikitha P" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  />
                 </div>
               </motion.div>
 

@@ -6,7 +6,6 @@ import AboutSection from "@/components/AboutSection";
 import EducationSection from "@/components/EducationSection";
 import ExpertiseSection from "@/components/ExpertiseSection";
 import FocusSection from "@/components/FocusSection";
-import ProjectsSection from "@/components/ProjectsSection";
 import CertificatesSection from "@/components/CertificatesSection";
 import ContactSection from "@/components/ContactSection";
 
@@ -25,7 +24,6 @@ const Index = () => {
       <EducationSection />
       <ExpertiseSection />
       <FocusSection />
-      <ProjectsSection />
       <CertificatesSection />
       <AboutSection id="about-2" />
       <ContactSection />

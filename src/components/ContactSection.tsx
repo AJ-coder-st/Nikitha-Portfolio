@@ -8,7 +8,7 @@ const ContactSection = () => {
 
   const contactItems = [
     { icon: Phone, label: "6369886225", href: "tel:6369886225" },
-    { icon: Mail, label: "nnikitha033@gmail.com", href: "mailto:nnikitha033@gmail.com" },
+    { icon: Mail, label: "nnikitha033@gmail.com", href: "https://mail.google.com/mail/?view=cm&to=nnikitha033@gmail.com" },
     {
       icon: Linkedin,
       label: "linkedin.com/in/nikitha033",

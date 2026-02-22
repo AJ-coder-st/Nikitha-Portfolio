@@ -108,7 +108,7 @@ const HeroSection = () => {
         </motion.p>
 
         <motion.a
-          href="#projects"
+          href="#contact"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 0.6 }}
@@ -116,7 +116,7 @@ const HeroSection = () => {
           whileTap={{ scale: 0.98 }}
           className="group inline-flex items-center gap-2 px-8 py-3 rounded-full border border-primary/30 text-foreground font-medium text-xs tracking-[0.15em] uppercase transition-all duration-700 hover:border-primary/60 hover:bg-primary/5 hover:shadow-[0_0_30px_hsla(262,40%,65%,0.1)]"
         >
-          View Projects
+          Get In Touch
           <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
         </motion.a>
       </motion.div>
